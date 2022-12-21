@@ -46,7 +46,10 @@ export default {
     generateReport() {
       console.log(this.month)
       console.log(this.year)
-      this.$axios.get('/bymonth')
+      this.$axios.post('/bymonth', {
+        month:this.month,
+        year: this.year
+      })
         .then(data => {
           console.log(data)
         })
