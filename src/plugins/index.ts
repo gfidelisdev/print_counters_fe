@@ -7,7 +7,7 @@
 // Plugins
 import { loadFonts } from './webfontloader'
 import vuetify from './vuetify'
-import axios from './axios'
+import axios from './l.axios'
 
 // Types
 import type { App } from 'vue'
