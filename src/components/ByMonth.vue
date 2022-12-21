@@ -46,7 +46,7 @@ export default {
         { title: 'Dezembro', value: 12 }
       ],
       year: new Date().getFullYear(),
-      years: Array(28).fill(0).map((e, i) => i + 2022)
+      years: Array(28).fill(0).map((e, i) => i + 2022),
       printers: {}
     }
   },
@@ -59,7 +59,7 @@ export default {
         year: this.year
       })
         .then(data => {
-          printers = data.data
+          this.printers = data.data
         })
 
     }
