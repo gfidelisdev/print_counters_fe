@@ -19,7 +19,7 @@
     <v-row>
       <v-col>
         <div v-for="printer in printers">
-          {printer.id} - {printer.sn}
+          {{ printer.id }} - {{ printer.sn }}
         </div>
       </v-col>
     </v-row>
