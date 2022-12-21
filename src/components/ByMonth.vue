@@ -16,6 +16,13 @@
 
       </v-col>
     </v-row>
+    <v-row>
+      <v-col>
+        <div v-for="printer in printers">
+          {printer.id} - {printer.sn}
+        </div>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -40,6 +47,7 @@ export default {
       ],
       year: new Date().getFullYear(),
       years: Array(28).fill(0).map((e, i) => i + 2022)
+      printers: {}
     }
   },
   methods: {
@@ -51,7 +59,7 @@ export default {
         year: this.year
       })
         .then(data => {
-          console.log(data)
+          printers = data.data
         })
 
     }
