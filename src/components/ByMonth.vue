@@ -35,7 +35,7 @@ export default {
         { title: 'Agosto', value: 8 },
         { title: 'Setembro', value: 9 },
         { title: 'Outubro', value: 10 },
-        { title: 'Novembro', value: 1 },
+        { title: 'Novembro', value: 11 },
         { title: 'Dezembro', value: 12 }
       ],
       year: new Date().getFullYear(),
@@ -47,7 +47,7 @@ export default {
       console.log(this.month)
       console.log(this.year)
       this.$axios.post('/bymonth', {
-        month:this.month,
+        month: this.month,
         year: this.year
       })
         .then(data => {

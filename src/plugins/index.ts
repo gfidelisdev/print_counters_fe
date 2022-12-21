@@ -17,5 +17,5 @@ export function registerPlugins (app: App) {
   app.use(vuetify)
   app.use(axios, {
     baseUrl: 'http://127.0.0.1:8765/api',
-})
+  })
 }
