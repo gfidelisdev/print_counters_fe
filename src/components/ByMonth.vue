@@ -27,6 +27,8 @@
       <v-col>Total de Cópias</v-col>
       <v-col>Total de Cópias+Impressões</v-col>
       <v-col>Total de Digitalizações</v-col>
+      <v-col>Início</v-col>
+      <v-col>Fim</v-col>
     </v-row>
     <v-row v-for="printer in printers">
       <template v-if="printer.msg">
@@ -43,6 +45,8 @@
         <v-col>{{ printer.totalCopies }}</v-col>
         <v-col>{{ printer.totalCopies + printer.totalPrints }}</v-col>
         <v-col>{{ printer.totalScans }}</v-col>
+        <v-col>{{ printer.startTime }}</v-col>
+        <v-col>{{ printer.endTime }}</v-col>
       </template>
     </v-row>
   </v-container>
