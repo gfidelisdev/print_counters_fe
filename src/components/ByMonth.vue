@@ -18,10 +18,32 @@
     </v-row>
     <v-row>
       <v-col>
-        <div v-for="printer in printers">
-          {{ printer.id }} - {{ printer.sn }}
+        <div>
+          ID - SN
         </div>
       </v-col>
+      <v-col>IP</v-col>
+      <v-col>Total de Impressões</v-col>
+      <v-col>Total de Cópias</v-col>
+      <v-col>Total de Cópias+Impressões</v-col>
+      <v-col>Total de Digitalizações</v-col>
+    </v-row>
+    <v-row v-for="printer in printers">
+      <template v-if="printer.msg">
+        <v-col>{{ printer.msg }}</v-col>
+      </template>
+      <template v-else>
+        <v-col>
+          <div>
+            {{ printer.id }} - {{ printer.sn }}
+          </div>
+        </v-col>
+        <v-col>{{ printer.ip }}</v-col>
+        <v-col>{{ printer.totalPrints }}</v-col>
+        <v-col>{{ printer.totalCopies }}</v-col>
+        <v-col>{{ printer.totalCopies + printer.totalPrints }}</v-col>
+        <v-col>{{ printer.totalScans }}</v-col>
+      </template>
     </v-row>
   </v-container>
 </template>
@@ -30,7 +52,7 @@
 export default {
   data() {
     return {
-      month: 'Janeiro',
+      month: 1,
       months: [
         { title: 'Janeiro', value: 1 },
         { title: 'Fevereiro', value: 2 },
@@ -46,7 +68,7 @@ export default {
         { title: 'Dezembro', value: 12 }
       ],
       year: new Date().getFullYear(),
-      years: Array(28).fill(0).map((e, i) => i + 2022),
+      years: Array(28).fill(0).map((e, i) => i + 2018),
       printers: {}
     }
   },
@@ -60,6 +82,7 @@ export default {
       })
         .then(data => {
           this.printers = data.data
+          console.log(this.printers)
         })
 
     }
