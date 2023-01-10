@@ -30,7 +30,7 @@
       <v-col>Início</v-col>
       <v-col>Fim</v-col>
     </v-row>
-    <v-row v-for="printer in printers">
+    <v-row v-for="printer in printers" :key="printer.id">
       <template v-if="printer.msg">
         <v-col>{{ printer.msg }}</v-col>
       </template>
